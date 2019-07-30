@@ -4,6 +4,10 @@ Boilerplate for javascript prototyping
 <br>
 
 ## Installation
+### By using as a Github template
+[Use this template](https://github.com/chevalvert/prototype-boilerplate/generate).
+
+### By cloning and unboiling manually
 ```console
 $ git clone https://github.com/chevalvert/prototype-boilerplate my-proto
 $ cd my-proto
