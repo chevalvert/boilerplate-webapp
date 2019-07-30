@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <base href="{{compiler.publicPath}}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+  <title>{{title}} | {{compiler.semver}}</title>
+
+  {{#if compiler.isProduction}}
+  <link rel="stylesheet" href="{{compiler.hash}}.css">
+  {{/if}}
+</head>
+<body class="{{#unless compiler.isProduction}}is-not-production{{/unless}}">
+  <main>This is a boilerplate.</main>
+
+  <script type="text/javascript">
+    window.isProduction = ~window.location.hash.indexOf('#production') || ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev'))
+    window.devServer = "{{ compiler.devServer }}"
+    window.lang = "{{ lang }}"
+  </script>
+  <script src="{{compiler.hash}}.js"></script>
+</body>
+</html>

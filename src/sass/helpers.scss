@@ -1,0 +1,84 @@
+@mixin debug ($color: red) {
+  outline: 1px solid $color;
+}
+
+@mixin easing ($duration: 100ms, $property: all){
+  -webkit-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+     -moz-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+      -ms-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+       -o-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+          transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+@mixin reset-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:focus { outline: none; }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@mixin no-smooth {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-crisp-edges;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+
+}
+
+@mixin loader ($size: 5rem, $thickness: 1rem, $foreground: $black, $background: transparent, $speed: 1s) {
+  @keyframes loader-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  content: '';
+
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: $size;
+  height: $size;
+  margin-left: -$size / 2;
+  margin-top: -$size / 2;
+
+  border: $thickness solid $background;
+  border-top: $thickness solid $foreground;
+  border-left: $thickness solid $foreground;
+  border-radius: 50%;
+  animation: loader-spin $speed linear infinite;
+}
+
