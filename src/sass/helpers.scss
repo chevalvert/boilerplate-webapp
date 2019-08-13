@@ -1,3 +1,20 @@
+@mixin html-no-scroll {
+  html {
+    overflow: hidden;
+    height: 100%;
+    body {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100vw;
+      overflow-x: none;
+      overflow-y: none;
+    }
+  }
+}
+
 @mixin debug ($color: red) {
   outline: 1px solid $color;
 }
@@ -8,6 +25,13 @@
       -ms-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
        -o-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
           transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+@mixin checkerboard ($size: 48px, $color: #808080, $background: white) {
+  background-color: $background;
+  background-image: linear-gradient(45deg, $color 25%, transparent 25%), linear-gradient(-45deg, $color 25%, transparent 25%), linear-gradient(45deg, transparent 75%, $color 75%), linear-gradient(-45deg, transparent 75%, $color 75%);
+  background-size: $size $size;
+  background-position: 0 0, 0 #{$size / 2}, #{$size / 2} -#{$size / 2}, -#{$size / 2} 0px;
 }
 
 @mixin reset-button {
