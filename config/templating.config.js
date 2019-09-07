@@ -24,7 +24,7 @@ module.exports = {
       hash: store.hash,
       devServer: (!isProduction) && store.devServerUrl,
       publicPath: paths.public,
-      semver: pkg.version,
+      semver: pkg.version + (isProduction ? '' : '-dev'),
       isProduction
     }
   }
