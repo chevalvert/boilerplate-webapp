@@ -16,9 +16,14 @@
   <main>This is a boilerplate.</main>
 
   <script type="text/javascript">
-    window.isProduction = ~window.location.hash.indexOf('#production') || ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev'))
-    window.devServer = "{{ compiler.devServer }}"
-    window.lang = "{{ lang }}"
+    window.ENV = {
+      production:
+        !!~window.location.hash.indexOf('#production') ||
+        ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev')),
+      devServer: "{{ compiler.devServer }}",
+      version: "{{ compiler.semver }}",
+      lang: "{{ lang }}"
+    }
   </script>
   <script src="{{compiler.hash}}.js"></script>
 </body>
