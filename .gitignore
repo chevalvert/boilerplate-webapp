@@ -5,6 +5,8 @@ server/data/*
 ####### NODE ########
 .tmp
 .sass-cache
+.eslintcache
+.stylelintcache
 bower_components
 # Logs
 logs
