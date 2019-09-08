@@ -23,6 +23,8 @@ $ npm install
 ```console
 $ npm run start
 $ npm run build
+
+$ npm run test
 $ npm run lint
 ```
 
