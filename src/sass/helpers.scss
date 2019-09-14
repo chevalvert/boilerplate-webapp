@@ -2,7 +2,6 @@
   html {
     height: 100%;
     overflow: hidden;
-
     body {
       position: absolute;
       top: 0;
@@ -27,11 +26,9 @@
 
 @mixin ratio ($ratio: 1) {
   height: auto;
-
   &::before {
     float: left;
     padding-top: 100% / $ratio;
-
     content: '';
   }
 }
@@ -61,13 +58,13 @@
   border: none;
 
   appearance: none;
+
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &::-moz-focus-inner {
     padding: 0;
-
     border: 0;
   }
 
@@ -76,7 +73,6 @@
 
 @mixin no-select {
   -webkit-touch-callout: none;
-
   user-select: none;
 }
 

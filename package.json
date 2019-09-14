@@ -60,7 +60,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylelint": "^8.0.0",
-    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-rational-order": "justrhysism/stylelint-config-rational-order#feature/#11-empty-line-threshold",
     "stylelint-order": "^3.1.0",
     "stylelint-scss": "^3.10.1",
     "webpack": "^3.4.1",
