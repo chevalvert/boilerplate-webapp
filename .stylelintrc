@@ -7,9 +7,7 @@
   ],
   "plugins": [
     "stylelint-scss",
-  ],
-  "extends": [
-    "stylelint-config-rational-order"
+    "stylelint-order"
   ],
   "rules": {
     "no-extra-semicolons": true,
@@ -26,14 +24,6 @@
       { "type": "at-rule", "name": "media" },
       { "type": "at-rule", "name": "include", "hasBlock": true },
       "rules"
-    ],
-
-    "plugin/rational-order": [
-      true,
-      {
-        "empty-line-between-groups": "threshold",
-        "empty-line-minimum-property-threshold": 4
-      }
     ]
   }
 }
