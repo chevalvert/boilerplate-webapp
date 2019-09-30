@@ -1,15 +1,15 @@
-# prototype-boilerplate [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
-Boilerplate for javascript prototyping
+# boilerplate-webpack [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
+> Boilerplate for javascript based webapp prototyping
 
 <br>
 
 ## Installation
 ### By using as a Github template
-[Use this template](https://github.com/chevalvert/prototype-boilerplate/generate).
+[Use this template](https://github.com/chevalvert/boilerplate-webapp/generate).
 
 ### By cloning and unboiling manually
 ```console
-$ git clone https://github.com/chevalvert/prototype-boilerplate my-proto
+$ git clone https://github.com/chevalvert/boilerplate-webapp my-proto
 $ cd my-proto
 $ npm install
 ```

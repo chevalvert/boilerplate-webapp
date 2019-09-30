@@ -1,7 +1,7 @@
 {
-  "name": "prototype-boilerplate",
+  "name": "boilerplate-webapp",
   "version": "0.0.0",
-  "description": "boilerplate for javascript prototyping",
+  "description": "Boilerplate for javascript based webapp prototyping",
   "scripts": {
     "analyze": "cross-env NODE_ENV=production webpack -p --config config/webpack.config.prod.js --profile --json > stats.json && echo \"→ Stats.json created\" && echo \"→ Drop your file to https://chrisbateman.github.io/webpack-visualizer/\"",
     "start": "cross-env NODE_ENV=development node scripts/serve.js",
