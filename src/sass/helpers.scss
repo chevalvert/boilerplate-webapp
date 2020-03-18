@@ -20,7 +20,10 @@
   outline: 1px solid $color;
 }
 
-@mixin easing ($duration: 100ms, $property: all) {
+@mixin easing ($duration: 100ms, $property: all, $will-change: false) {
+  @if $will-change {
+    will-change: $property;
+  }
   transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
