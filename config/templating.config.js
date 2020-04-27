@@ -21,6 +21,7 @@ module.exports = {
   beforeRender (data) {
     // set compiler data for use inside layouts
     data.compiler = {
+      name: pkg.name,
       hash: store.hash,
       devServer: (!isProduction) && store.devServerUrl,
       publicPath: paths.public,
