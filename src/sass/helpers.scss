@@ -17,7 +17,7 @@
 }
 
 @mixin debug ($color: red) {
-  outline: 1px solid $color;
+  outline: 1px solid $color !important;
 }
 
 @mixin easing ($duration: 100ms, $property: all, $will-change: false) {
