@@ -71,7 +71,7 @@ function init () {
     minify: false,
     middleware: middlewares,
     files: [
-      path.join(paths.layouts, '**/*'),
+      path.join(paths.pages, '**/*'),
       path.join(paths.static, '**/*')
     ]
   }, () => {

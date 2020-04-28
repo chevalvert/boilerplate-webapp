@@ -17,7 +17,6 @@
     "abstractions": "src/abstractions",
     "components": "src/components",
     "controllers": "src/controllers",
-    "pages": "src/pages",
     "utils": "src/utils",
     "worker": "src/worker.js"
   },

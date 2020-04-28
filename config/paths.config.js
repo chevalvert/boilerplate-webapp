@@ -32,6 +32,6 @@ module.exports = {
   aliases,
 
   // Generating page from content and layouts
-  layouts: path.join(__dirname, '..', 'src', 'pages'),
+  pages: path.join(__dirname, '..', 'src', 'pages'),
   partials: path.join(__dirname, '..', 'src', 'pages')
 }
