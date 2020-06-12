@@ -1,0 +1,23 @@
+name: Deploy production branch to FTP
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: production
+        fetch-depth: 2
+
+    - uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        LOCAL_DIR: ./
+        REMOTE_DIR: /tooooools/www/${{ GITHUB_REPOSITORY }}
+        ARGS: --exclude-glob=.git*/**

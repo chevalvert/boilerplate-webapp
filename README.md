@@ -23,15 +23,17 @@ $ npm install
 ```console
 $ npm run start
 $ npm run build
+$ npm run deploy:preprod
+$ npm run deploy:gh-pages
 
 $ npm run test
 $ npm run lint
 ```
 
 ### Modules aliases
-###### `package.json` 
+###### `package.json`
 ```json
-{  
+{
   …
   "aliases": {
     "a-directory": "a-directory",
@@ -47,7 +49,7 @@ import foo from 'a-file'
 ```
 
 
-### Deployment using github releases
+### Deployment using GitHub releases
 ```console
 $ npm run version
 ```

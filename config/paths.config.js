@@ -3,11 +3,9 @@ const pckg = require('../package.json')
 
 const appEnv = process.env.APP_ENV || process.env.NODE_ENV || 'development'
 
+// Add a base href for your APP_ENV if needed
 let publicPaths = {
-  development: '/',
-  ghpages: '/' + pckg.name + '/',
-  preprod: '/',
-  production: '/'
+  ghpages: '/' + pckg.name + '/'
 }
 
 // Creating aliases based on package.json `aliases` object
@@ -20,12 +18,12 @@ if (pckg.aliases) {
 
 module.exports = {
   // Used by the devServer and base href
-  public: publicPaths[appEnv] || publicPaths.development,
+  public: publicPaths[appEnv],
 
   // Used by the module bundler
+  build: path.join(__dirname, '..', 'build'),
   root: path.join(__dirname, '..'),
   src: path.join(__dirname, '..', 'src'),
-  build: path.join(__dirname, '..', 'build'),
   static: path.join(__dirname, '..', 'static'),
 
   // Node-Resolve aliases

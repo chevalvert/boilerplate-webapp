@@ -5,13 +5,15 @@
   "scripts": {
     "analyze": "cross-env NODE_ENV=production webpack -p --config config/webpack.config.prod.js --profile --json > stats.json && echo \"→ Stats.json created\" && echo \"→ Drop your file to https://chrisbateman.github.io/webpack-visualizer/\"",
     "start": "cross-env NODE_ENV=development node scripts/serve.js",
-    "build": "cross-env NODE_ENV=production npm run test && cross-env NODE_ENV=production node scripts/build.js",
-    "deploy": "cross-env APP_ENV=ghpages npm run build && ghp build",
+    "build": "cross-env NODE_ENV=production node scripts/build.js",
+    "deploy": "npm run build && ghp build -f -b production -m ':rocket: production'",
+    "deploy:preprod": "npm run build && ghp build -f -b preprod -m ':construction: preprod'",
+    "deploy:gh-pages": "cross-env APP_ENV=ghpages npm run build && ghp build -f",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint --ext .js ./config ./scripts ./src --cache",
     "lint:css": "stylelint ./src/**/*.scss ./src/**/*.css --cache",
     "test": "ava --verbose",
-    "postversion": "git push && git push --tags && npm run deploy -- --force"
+    "postversion": "git push && git push --tags && npm run deploy"
   },
   "aliases": {
     "abstractions": "src/abstractions",
@@ -49,7 +51,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "fast-glob": "^3.0.4",
     "fs-extra": "^5.0.0",
-    "ghp": "^1.1.4",
+    "ghp": "^1.4.0",
     "handlebars": "^4.0.10",
     "kool-shell": "^1.5.0",
     "node-sass": "^4.5.3",
