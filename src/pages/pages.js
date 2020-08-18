@@ -1,7 +1,13 @@
 module.exports = [
   {
     output: 'index.html',
-    content: { title: 'Boilerplate', lang: 'fr' },
-    layout: 'pages/index.hbs'
+    layout: 'pages/index.hbs',
+    content: {
+      title: 'Boilerplate',
+      lang: 'fr',
+      env: {
+        boilerplate: true
+      }
+    }
   }
 ]

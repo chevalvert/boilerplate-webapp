@@ -16,7 +16,7 @@
   <main>This is a boilerplate.</main>
 
   <script type="text/javascript">
-    window.ENV = {
+    window.ENV = Object.assign({
       production:
         !!~window.location.hash.indexOf('#production') ||
         ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev')),
@@ -24,7 +24,7 @@
       devServer: "{{ compiler.devServer }}",
       version: "{{ compiler.semver }}",
       lang: "{{ lang }}"
-    }
+    }, {{#if env}}{{{json env}}}{{else}}{}{{/if}})
   </script>
   <script src="{{compiler.hash}}.js"></script>
 </body>
