@@ -19,5 +19,5 @@ jobs:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         LOCAL_DIR: ./
-        REMOTE_DIR: /tooooools/dev/${{ GITHUB_REPOSITORY }}
+        REMOTE_DIR: /dev/${{ github.event.repository.name }}
         ARGS: --exclude-glob=.git*/**

@@ -29,7 +29,8 @@ module.exports = {
       devServer: (!isProduction) && store.devServerUrl,
       publicPath: paths.public,
       semver: pkg.version + (isProduction ? '' : '-dev'),
-      isProduction
+      isProduction,
+      env: process.env.NODE_ENV
     }
   }
 }

@@ -1,7 +1,19 @@
-@import 'sass/reset';
-@import 'sass/helpers';
+@import 'style/reset';
+@import 'style/fonts';
+@import 'style/helpers';
+@import 'style/devices';
 
-$black: #000000;
-$white: #FFFFFF;
+:root {
+  --background: #F0F0F0;
 
-@import 'sass/base';
+  --font-family: sans-serif;
+  --font-size: 1.8rem;
+  --line-height: 1.4;
+}
+
+@import 'style/base';
+
+body[data-env='test'] {
+  --background: #333;
+  color: white;
+}

@@ -52,7 +52,8 @@ const devConfig = {
       }
     ]
   },
-  devtool: '#eval-source-map'
+  mode: 'development',
+  devtool: 'eval-cheap-module-source-map'
 }
 
 module.exports = merge(commonConfig, devConfig)

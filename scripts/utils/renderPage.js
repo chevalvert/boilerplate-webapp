@@ -16,14 +16,13 @@ function reloadHelpers () {
 function render (page) {
   return new Promise((resolve, reject) => {
     const layoutPath = path.join(paths.src, page.layout)
-    const content = Object.assign({}, page.content)
     fs.readFile(layoutPath, 'utf8', (err, data) => {
       if (err) return reject(err)
       let template, rendered
       try {
         template = handlebars.compile(data)
-        templatingConf.beforeRender(content)
-        rendered = template(content)
+        templatingConf.beforeRender(page)
+        rendered = template(page)
       } catch (err) {
         return reject(err)
       }

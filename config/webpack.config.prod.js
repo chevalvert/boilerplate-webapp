@@ -4,7 +4,7 @@ const merge = require('webpack-merge')
 const paths = require('./paths.config')
 const commonConfig = require('./webpack.config.common')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const prodConfig = {
@@ -15,35 +15,43 @@ const prodConfig = {
     rules: [
       {
         test: /\.(scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                url: false,
-                sourceMap: true,
-                minimize: true
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: { path: path.resolve(__dirname, 'postcss.config.js') },
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: true,
+              minimize: true
             }
-          ]
-        })
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: { path: path.resolve(__dirname, 'postcss.config.js') },
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },
+
+  optimization: {
+    // Do not minimize output, because some parts of the code rely on comparing
+    // <instance>.constructor.name to a string
+    minimize: false
+  },
+
   plugins: [
     // Copy static files
     new CopyWebpackPlugin(
@@ -51,21 +59,13 @@ const prodConfig = {
       { ignore: ['.DS_Store', '.gitkeep'] }
     ),
 
-    // Extract all css into one file
-    new ExtractTextPlugin({ filename: '[hash].css', allChunks: true }),
-
     // Minification and size optimization
-    new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': '"production"' } }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false, screw_ie8: true, drop_console: true },
-      output: { comments: false },
-      mangle: { screw_ie8: true },
-      sourceMap: true
-    }),
+    new MiniCssExtractPlugin({ filename: '[hash].css' }),
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
     new webpack.optimize.OccurrenceOrderPlugin()
   ],
-  devtool: '#source-map',
-  bail: true
+  mode: 'production',
+  devtool: 'source-map'
 }
 
 module.exports = merge(commonConfig, prodConfig)

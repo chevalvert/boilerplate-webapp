@@ -12,18 +12,23 @@
   <link rel="stylesheet" href="{{compiler.hash}}.css">
   {{/if}}
 </head>
-<body class="{{#unless compiler.isProduction}}is-not-production{{/unless}}">
-  <main>This is a boilerplate.</main>
-
+<body
+  class="is-loading {{#unless compiler.isProduction}}is-not-production{{/unless}}"
+  data-env="{{ compiler.env }}"
+>
+  <noscript>JavaScript doit être activé pour pouvoir utiliser cet outil.</noscript>
   <script type="text/javascript">
     window.ENV = Object.assign({
+      envName: "{{ compiler.env }}",
       production:
         !!~window.location.hash.indexOf('#production') ||
         ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev')),
+      title: "{{ title }}",
       name: "{{ compiler.name }}",
       devServer: "{{ compiler.devServer }}",
       version: "{{ compiler.semver }}",
-      lang: "{{ lang }}"
+      lang: "{{ lang }}",
+      data: {{{json data}}}
     }, {{#if env}}{{{json env}}}{{else}}{}{{/if}})
   </script>
   <script src="{{compiler.hash}}.js"></script>

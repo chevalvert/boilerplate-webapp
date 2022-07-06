@@ -1,9 +1,12 @@
 const path = require('path')
 const paths = require('./paths.config')
+const webpack = require('webpack')
 
 module.exports = {
   entry: [
-    path.join(paths.src, 'index.js'),
+    process.env.NODE_ENV === 'test'
+      ? path.join(paths.test)
+      : path.join(paths.src, 'index.js'),
     path.join(paths.src, 'index.scss')
   ],
   output: {
@@ -19,9 +22,26 @@ module.exports = {
       {
         test: /\.(js)$/,
         loader: 'babel-loader',
-        include: paths.src
+        include: [paths.src, paths.test]
+      },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: 'ifdef-loader',
+        options: {
+          TEST: process.env.NODE_ENV === 'test',
+          DEVELOPMENT: process.env.NODE_ENV !== 'production'
+        }
+      },
+      {
+        test: /\.svg$/i,
+        use: 'raw-loader'
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.ProvidePlugin({
+      h: [path.join(paths.src, 'utils', 'jsx'), 'h']
+    })
+  ]
 }

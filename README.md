@@ -1,5 +1,5 @@
-# boilerplate-webpack [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
-> Boilerplate for javascript based webapp prototyping
+# boilerplate-webapp [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
+> Boilerplate for JavaScript webapp, with minimal JSX
 
 <br>
 
@@ -9,8 +9,8 @@
 
 ### By cloning and unboiling manually
 ```console
-$ git clone https://github.com/chevalvert/boilerplate-webapp my-proto
-$ cd my-proto
+$ git clone https://github.com/chevalvert/boilerplate-webapp my-webapp
+$ cd my-webapp
 $ npm install
 ```
 
@@ -49,10 +49,14 @@ import foo from 'a-file'
 ```
 
 
-### Deployment using GitHub releases
+### Deployment to production using GitHub releases
 ```console
 $ npm run version
 ```
+
+## Credits
+
+JSX utils heavily based on [**pqml**](https://github.com/pqml)’s work.
 
 ## License
 [MIT.](https://tldrlegal.com/license/mit-license)

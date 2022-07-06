@@ -1,13 +1,1 @@
-module.exports = [
-  {
-    output: 'index.html',
-    layout: 'pages/index.hbs',
-    content: {
-      title: 'Boilerplate',
-      lang: 'fr',
-      env: {
-        boilerplate: true
-      }
-    }
-  }
-]
+module.exports = [  {    title: 'boilerplate-webapp',    lang: 'fr',    output: 'index.html',    layout: 'pages/index.hbs',    data: {}  }]

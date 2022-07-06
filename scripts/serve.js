@@ -62,6 +62,7 @@ function init () {
       baseDir: paths.static
     },
     open: false,
+    ghostMode: false,
     reloadOnRestart: true,
     notify: false,
     offline: devServConf.offline || false,
