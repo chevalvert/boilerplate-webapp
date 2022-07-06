@@ -1,5 +1,5 @@
 # boilerplate-webapp [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
-> Boilerplate for JavaScript webapp, with minimal JSX
+> Webapp boilerplate with minimal JSX support
 
 <br>
 

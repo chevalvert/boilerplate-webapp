@@ -1,7 +1,7 @@
 {
-  "name": "toools-fracauv",
-  "version": "1.1.1",
-  "description": "Toools™ FRAC Auvergne",
+  "name": "boilerplate-webapp",
+  "version": "0.0.0",
+  "description": "Webapp boilerplate with minimal JSX support",
   "scripts": {
     "start": "cross-env NODE_ENV=development node scripts/serve.js",
     "test": "cross-env NODE_ENV=test node scripts/serve.js",
